@@ -1,14 +1,25 @@
 import './App.css';
-import CounterComponent from './components/CounterComponent.jsx';
-import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomeComponent from './components/home/HomeComponent';
+import ProductsComponent from './components/products/ProductsComponent';
+import ContactComponent from './components/contact/ContactComponent';
+import NavBar from './components/navigation/NavBar';
+import SingleProduct from './components/product/SingleProduct';
+import CategoryComponent from './components/categories/CategoryComponent';
 
 function App() {
   return (
     <>
-      <NavBar />
-      <ItemListContainer greeting="Productos a la venta" />
-      {/*       <CounterComponent /> */}
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route exact path="/" element={<HomeComponent />} />
+          <Route exact path="/products" element={<ProductsComponent />} />
+          <Route exact path="/product/:prodId" element={<SingleProduct />} />
+          <Route exact path="/category/:catName" element={<CategoryComponent />} />
+          <Route exact path="/contact" element={<ContactComponent />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
