@@ -1,3 +1,5 @@
+
+
 const products = [
     {
       id: 1,
@@ -81,14 +83,35 @@ const products = [
         'https://jumboargentina.vtexassets.com/arquivos/ids/782053-1200-auto?v=638201074088870000&width=1200&height=auto&aspect=true',
     },
   ];
-  
-  export const getProducts = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 2000);
-  });
-  
-  export const getProduct = (id) => {
-    return products.find((prod) => prod.id == id);
+
+  export const getProducts = () => {
+    return products;
   };
   
+  export const getProductById = (id) => {
+    return products.find((prod) => prod.id === id);
+  };
+  
+  export const getProductByTitle = (title) => {
+    return products.find((prod) => prod.title === title);
+  };
+  
+  export const getProductByPrice = (price) => {
+    return products.find((prod) => prod.price === price);
+  };
+  
+  export const getProductByCategory = (category) => {
+    return products.filter((prod) => prod.category === category);
+  };
+  
+  export const getProductByDescription = (description) => {
+    return products.find((prod) => prod.description === description);
+  };
+  
+  export const getProductByImage = (image) => {
+    return products.find((prod) => prod.image === image);
+  };
+  
+  export const getProductsByCategory = (category) => {
+    return products.filter((prod) => prod.category === category);
+  };

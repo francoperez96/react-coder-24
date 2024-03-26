@@ -8,7 +8,12 @@ export default function ProductsComponent() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getProducts.then((data) => setProducts(data));
+    const fetchData = async () => {
+      const data = getProducts(); 
+      setProducts(data); 
+    };
+
+    fetchData(); 
   }, []);
 
   const handleClick = (id) => {
@@ -18,8 +23,8 @@ export default function ProductsComponent() {
   return (
     <>
       <div>
-        <h1>Products Component</h1>
-        <section className="product-section"> 
+        <h1>Productos</h1>
+        <section className="container product-section"> 
           {products.map((product) => (
             <article
               key={product.id}
